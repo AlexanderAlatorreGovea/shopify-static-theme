@@ -17,13 +17,37 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 80px;
+    height: 60px;
     padding: 0 10%;
     z-index: 10;
 }
 
 header .menu {
     display: flex;
+    margin-bottom: 0;
+}
+
+header .menu.mobile-mode .link{
+    display: none;
+}
+
+header .menu .open-mobile-menu {
+    display: none;
+}
+
+header .menu.mobile-mode .open-mobile-menu {
+    display: block;
+    color: whitesmoke;
+}
+
+header .menu.mobile-mode .open-mobile-menu {
+    display: block;
+    /* height: 50px;
+    width: 50px; */
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    font-size: 1.5rem;
 }
 
 header .logo a {
@@ -32,6 +56,7 @@ header .logo a {
     color: white;
     text-transform: uppercase;
     font-size: 2rem;
+    display: block;
 }
 
 header .menu a {
@@ -42,7 +67,7 @@ header .menu a {
     text-transform: uppercase;
     color: white;
 } 
-
+ 
 header .menu .link{
     padding: 20px;
 }
@@ -170,6 +195,7 @@ header .menu .dropdown .sub-menu a{
 
 #two-collections { 
     margin-bottom: 25px;
+    overflow: hidden;
 }
 
 #two-collections .left-c .left-c-img{ 
@@ -208,7 +234,7 @@ header .menu .dropdown .sub-menu a{
 }
 
 #two-collections .left-c .collection-title span{  
-    transform: translate3d(-100px, 50px, 0);
+    transform: translate3d(-25px, 50px, 0);
     line-height: 4rem;
 }
 
@@ -293,6 +319,7 @@ header .menu .dropdown .sub-menu a{
 
 #products-group {
     padding: 50px 0 0 0;
+    overflow: hidden;
 }
 
 #products-group div[class*="col"] {
@@ -352,6 +379,7 @@ header .menu .dropdown .sub-menu a{
 footer {
     background-color: #1b1b1b;
     padding: 50px 0;
+    overflow: hidden;
 }
 
 footer .footer-menu .menu-title, footer .social-title {
@@ -398,3 +426,76 @@ footer .address {
     display: block;
     width: 100%;
 }
+
+#mobile-menu {
+    background: black;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    padding: 20px;
+    display: none;
+}
+
+#mobile-menu.active{
+    display: block;
+}
+
+
+#mobile-menu .logo {
+    font-size: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+#mobile-menu .logo a {
+    color: white;
+    text-transform: uppercase;
+}
+
+.closing-mobile-menu {
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    position: absolute;
+    right: 0;
+}
+
+#mobile-menu .menu li {
+    margin-bottom: 1rem;
+}
+
+#mobile-menu .menu > li > a{
+    color: #ffff00;
+    font-size: 1.2rem;
+    display: block;
+    border-bottom: 1px solid white;
+    margin-bottom: 15px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#mobile-menu .menu > li.dropdown {
+    /* display: flex; */
+}
+
+/* #mobile-menu .menu > li.dropdown  a{
+    color: white;
+    font-size: 1.2rem;
+    display: inline-block;
+    border-bottom: none;
+} */
+
+#mobile-menu .menu > li.dropdown .sub-menu  a{
+    color: white;
+    font-size: 1.2rem;
+    display: inline-block;
+    border-bottom: none;
+    padding: 10px 7px;
+}
+
