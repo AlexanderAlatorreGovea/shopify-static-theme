@@ -47,7 +47,7 @@ header .menu.mobile-mode .open-mobile-menu {
     display: flex;
     justify-self: center;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 header .logo a {
@@ -185,6 +185,23 @@ header .menu .dropdown .sub-menu a{
     bottom: 0;
     right: 0;
     display: flex;
+}
+
+#jumbo .store-info img{
+    height: 100%;
+    width: 25%;
+    object-fit: cover;
+    cursor: pointer;
+    filter: saturate(0);
+    transition: all .4s ease-in-out;
+}
+
+#jumbo .store-info img:hover{
+    height: 100%;
+    width: 25%;
+    object-fit: cover;
+    cursor: pointer;
+    filter: saturate(100%);
 }
 
 #jumbo .store-info img{
@@ -437,6 +454,7 @@ footer .address {
     z-index: 20;
     padding: 20px;
     display: none;
+    transform: translate3d(-100%, 0, 0);
 }
 
 #mobile-menu.active{
@@ -464,6 +482,7 @@ footer .address {
     color: white;
     position: absolute;
     right: 0;
+    top: -5px;
 }
 
 #mobile-menu .menu li {
@@ -480,17 +499,6 @@ footer .address {
     padding-bottom: 10px;
 }
 
-#mobile-menu .menu > li.dropdown {
-    /* display: flex; */
-}
-
-/* #mobile-menu .menu > li.dropdown  a{
-    color: white;
-    font-size: 1.2rem;
-    display: inline-block;
-    border-bottom: none;
-} */
-
 #mobile-menu .menu > li.dropdown .sub-menu  a{
     color: white;
     font-size: 1.2rem;
@@ -499,5 +507,68 @@ footer .address {
     padding: 10px 7px;
 }
 
-/* TEST 1 */
+/* tablet */
+@media(min-width: 768px) and (max-width: 991px) {
+    #two-collections .right-c .right-c-img .collection-title span{ 
+        font-size: 2.8rem;
+     }
+
+    #two-collections .left-c .left-c-img .collection-title span{ 
+       font-size: 2.8rem;
+    }
+
+    #horizontal-sale .overlay .percent-number {
+        font-size: 12rem;
+    }
+}
+
+/* large phones */
+@media(min-width: 576px) and (max-width: 767px) {
+    #jumbo .titles h1 {
+        font-size: 4rem;
+    }
+
+    #jumbo .titles h2 {
+        font-size: 2.7rem;
+    }
+
+    #jumbo .state .number {
+        font-size: 3rem;
+    }
+
+    #two-collections .left-c .left-c-img .collection-title span{ 
+       font-size: 2.8rem;
+    }
+
+    #horizontal-sale .overlay .percent-number {
+        font-size: 12rem;
+    }
+}
+
+/* small phones  */
+@media(min-width: 1px) and (max-width: 575px) {
+    #jumbo .titles h1 {
+        font-size: 3rem;
+    }
+
+    #jumbo .titles h2 {
+        font-size: 2.2rem;
+    }
+
+    #jumbo .state .number {
+        font-size: 2rem;
+    }
+
+    #two-collections .left-c .left-c-img .collection-title span{ 
+       font-size: 2.8rem;
+    }
+
+    #horizontal-sale .overlay .percent-number {
+        font-size: 10rem;
+    }
+    
+    #horizontal-sale .overlay .title {
+        font-size: 2rem;
+    }
+}
 

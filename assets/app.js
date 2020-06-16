@@ -11,7 +11,7 @@ jumboTL
             opacity: .5,
             duration: 2
         }
-    ).fromTo(".logo",
+    ).fromTo("header .logo",
         {
             x: -200,
             opacity: 0
@@ -21,7 +21,7 @@ jumboTL
             opacity: 1,
             duration: 1.5
         }
-    ).fromTo(".menu",
+    ).fromTo("header .menu",
         {
             x: 200,
             opacity: 0
@@ -38,7 +38,7 @@ jumboTL
             opacity: 0
         },
         {
-            x: 100,
+            x: (window.innerWidth * .10),
             opacity: 1,
             duration: 1
         },
@@ -49,7 +49,7 @@ jumboTL
             opacity: 0
         },
         {
-            x: 135,
+            x: (window.innerWidth * .15),
             opacity: 1,
             duration: 1
         },
@@ -271,23 +271,99 @@ let footerScene = new ScrollMagic.Scene({
     .setTween(footerTL)
     .addTo(homeController)
 
-/* TOGGLE MENU */
+/* MOBILE MENU ANIMATION */
 
-const menu = document.getElementById('mobile-menu');
-const closingMenu = document.querySelector('.closing-mobile-menu');
+const mobileMenuTL = gsap.timeline({
+    paused: true
+  });
+  mobileMenuTL
+    .fromTo(
+      "#mobile-menu",
+      {
+        x: "-100%",
+      },
+      {
+        x: 0,
+        duration: .8,
+      }
+    )
+    .fromTo(
+      "#mobile-menu .menu .link",
+      {
+        y: 50,
+        opacity: 0
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: .6,
+        stagger: .2
+      }
+    );
 
-const openMenu = () => {
-    menu.classList.toggle('active');
-}
+const openMobileMenu = document.querySelector(".open-mobile-menu");
+openMobileMenu.addEventListener("click", () => {
+    mobileMenuTL.play();
+});
 
-closingMenu.onclick = function () { 
-    menu.classList.toggle('active');
+const closeMobileMenu = document.querySelector(".closing-mobile-menu");
+closeMobileMenu.addEventListener("click", () => {
+    mobileMenuTL.reverse();
+});
+
+const mobileModeOn = () => {
+    if (window.innerWidth <= 991) {
+        document.querySelector("header .menu").classList.add("mobile-mode");
+    } else {
+        document.querySelector("header .menu").classList.remove("mobile-mode");
+    }
 };
 
-// document.querySelector(".open-mobile-menu")
-//     .addEventListener("click", function() {
-//     if (this.classList.contains("active")) {
-//         this.classList.remove("active");
-//     } else this.classList.add("active");
-//     });
+mobileModeOn();
+window.addEventListener("resize", function (event) {
+    mobileModeOn();
+});
+
+
+
+// const openMobileMenu = document.querySelector(".open-mobile-menu");
+// openMobileMenu.addEventListener('click', () => {
+//     mobileMenuTL.play();
+// });
+
+// const closeMobileMenu = document.querySelector(".closing-mobile-menu");
+// // closeMobileMenu.addEventListener('click', () => {
+// //     mobileMenuTL.reverse();
+// // });
+
+// const closeMenu = () => {
+//     mobileMenuTL.reverse();
+// }
+
+// const mobileModeOn = () => {
+//     if (window.innerWidth <= 991) {
+//         document.querySelector("header .menu").classList.add("mobile-mode");
+//     } else {
+//         document.querySelector("header .menu").classList.remove("mobile-mode");
+//     }
+// }
+
+// mobileModeOn();
+// window.addEventListener("resize", (event) => {
+//     mobileModeOn();
+// });
+//end
+
+/* TOGGLE MENU */
+
+// const menu = document.getElementById('mobile-menu');
+// const closingMenu = document.querySelector('.closing-mobile-menu');
+
+// const openMenu = () => {
+//     menu.classList.toggle('active');
+// }
+
+// closingMenu.onclick = function () { 
+//     menu.classList.toggle('active');
+// };
 
